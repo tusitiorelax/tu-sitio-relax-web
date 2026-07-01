@@ -15,20 +15,22 @@
     <style>
         /* --- DISEÑO DE IDENTIDAD PREMIUM: TU SITIO RELAX --- */
         :root {
-            --verde-zen: #4a6b5d;      /* Color de acento principal, transmite calma */
-            --verde-suave: #f1f5f3;     /* Fondos limpios y descansados */
+            --verde-zen: #4a6b5d;      /* Color de acento principal */
+            --verde-suave: #f8faf9;     /* Fondos limpios de las secciones */
             --blanco-puro: #ffffff;
-            --texto-oscuro: #2c3e35;    /* Texto legible pero suave, nada de negro puro */
+            --texto-oscuro: #2c3e35;    /* Texto legible pero suave */
             --texto-mutado: #607d70;
             --fuente-titulos: 'Playfair Display', serif;
             --fuente-cuerpo: 'Poppins', sans-serif;
             --color-whatsapp: #25d366;
+            --color-whatsapp-hover: #20ba5a;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -39,7 +41,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- BARRA DE NAVEGACIÓN (Elegante y fija) --- */
+        /* --- BARRA DE NAVEGACIÓN --- */
         .header-navegacion {
             position: fixed;
             top: 0;
@@ -84,11 +86,11 @@
             transform: translateY(-1px);
         }
 
-        /* --- SECCIÓN HERO (Banner de bienvenida de alto impacto) --- */
+        /* --- SECCIÓN HERO (BIENVENIDA) --- */
         .hero-bienvenida {
             min-height: 100vh;
-            padding: 120px 20px 60px 20px;
-            background: linear-gradient(135deg, rgba(241, 245, 243, 0.8) 0%, rgba(255, 255, 255, 0.9) 100%), 
+            padding: 140px 20px 80px 20px;
+            background: linear-gradient(135deg, rgba(248, 250, 249, 0.85) 0%, rgba(255, 255, 255, 0.95) 100%), 
                         url('assets/estetica/portada_real.jpg') no-repeat center center/cover;
             display: flex;
             align-items: center;
@@ -148,16 +150,131 @@
         }
 
         .btn-principal-whatsapp:hover {
-            background-color: #20ba5a;
+            background-color: var(--color-whatsapp-hover);
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
         }
 
-        /* Adaptación para pantallas chicas (Celulares) */
+        /* --- SECCIÓN SERVICIOS PREMIUM --- */
+        .seccion-servicios {
+            background-color: var(--verde-suave);
+            padding: 100px 20px;
+        }
+
+        .contenedor-servicios {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .titulo-seccion {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .titulo-seccion h3 {
+            font-family: var(--fuente-titulos);
+            font-size: 2.4rem;
+            font-weight: 400;
+            color: var(--texto-oscuro);
+            margin-bottom: 10px;
+        }
+
+        .titulo-seccion p {
+            font-size: 0.95rem;
+            color: var(--texto-mutado);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Grilla adaptativa: 3 columnas en PC, 1 en celulares */
+        .grilla-servicios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .tarjeta-servicio {
+            background-color: var(--blanco-puro);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(74, 107, 93, 0.04);
+            border: 1px solid rgba(74, 107, 93, 0.05);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tarjeta-servicio:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(74, 107, 93, 0.08);
+            border-color: rgba(74, 107, 93, 0.2);
+        }
+
+        .wrapper-imagen-servicio {
+            width: 100%;
+            aspect-ratio: 4/3;
+            background-color: #edf2f0; /* Color base mientras cargan las fotos reales */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .imagen-servicio {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .tarjeta-servicio:hover .imagen-servicio {
+            transform: scale(1.05);
+        }
+
+        .contenido-servicio {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            text-align: center;
+            justify-content: space-between;
+        }
+
+        .contenido-servicio h4 {
+            font-family: var(--fuente-titulos);
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--texto-oscuro);
+            margin-bottom: 20px;
+        }
+
+        .btn-servicio-whatsapp {
+            background-color: transparent;
+            color: var(--verde-zen);
+            border: 1.5px solid var(--verde-zen);
+            padding: 10px 22px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .tarjeta-servicio:hover .btn-servicio-whatsapp {
+            background-color: var(--verde-zen);
+            color: var(--blanco-puro);
+            box-shadow: 0 4px 12px rgba(74, 107, 93, 0.15);
+        }
+
+        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
             .hero-contenido h2 { font-size: 2.2rem; }
             .hero-contenido p { font-size: 0.95rem; }
             .btn-principal-whatsapp { padding: 12px 28px; font-size: 0.95rem; }
+            .seccion-servicios { padding: 60px 20px; }
+            .titulo-seccion h3 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -167,7 +284,7 @@
     <header class="header-navegacion">
         <nav class="nav-contenedor">
             <div class="logo-marca">Tu Sitio Relax</div>
-            <a href="https://wa.me/5493814644322?text=Hola,%20quisiera%20consultar%20por%20un%20turno" class="btn-turno-nav">RESERVAR</a>
+            <a href="#tratamientos" class="btn-turno-nav">SERVICIOS</a>
         </nav>
     </header>
 
@@ -181,6 +298,139 @@
             <a href="https://wa.me/5493814644322?text=Hola,%20buenas!%20Quiero%20conocer%20los%20turnos%20disponibles%20para%20los%20tratamientos" target="_blank" class="btn-principal-whatsapp">
                 <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> AGENDÁ TU TURNO DIRECTO
             </a>
+        </div>
+    </section>
+
+    <!-- SECCIÓN TRATAMIENTOS (PASO 2) -->
+    <section id="tratamientos" class="seccion-servicios">
+        <div class="contenedor-servicios">
+            
+            <div class="titulo-seccion">
+                <p>Nuestras Propuestas</p>
+                <h3>Tratamientos Exclusivos</h3>
+            </div>
+
+            <div class="grilla-servicios">
+                
+                <!-- Servicio 1 -->
+                <div class="tarjeta-servicio">
+                    <div class="wrapper-imagen-servicio">
+                        <!-- Cuando subas la foto a la carpeta assets, reemplazás 'electro.jpg' por el nombre real -->
+                        <img src="assets/estetica/electro.jpg" alt="Electroestimulación" class="imagen-servicio" onerror="this.style.opacity='0';">
+                    </div>
+                    <div class="contenido-servicio">
+                        <h4>Electroestimulación</h4>
+                        <a href="https://wa.me/5493814644322?text=Hola,%20quisiera%20reservar%20un%20turno%20para%20Electroestimulación" target="_blank" class="btn-servicio-whatsapp">
+                            RESERVAR TURNO
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Servicio 2 -->
+                <div class="tarjeta-servicio">
+                    <div class="wrapper-imagen-servicio">
+                        <img src="assets/estetica/semipermanente.jpg" alt="Esmaltado Semipermanente" class="imagen-servicio" onerror="this.style.opacity='0';">
+                    </div>
+                    <div class="contenido-servicio">
+                        <h4>Esmaltado Semipermanente</h4>
+                        <a href="https://wa.me/5493814644322?text=Hola,%20quisiera%20reservar%20un%20turno%20para%20Esmaltado%20Semipermanente" target="_blank" class="btn-servicio-whatsapp">
+                            RESERVAR TURNO
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Servicio 3 -->
+                <div class="tarjeta-servicio">
+                    <div class="wrapper-imagen-servicio">
+                        <img src="assets/estetica/lifting.jpg" alt="Lifting de Pestañas" class="imagen-servicio" onerror="this.style.opacity='0';">
+                    </div>
+                    <div class="contenido-servicio">
+                        <h4>Lifting de Pestañas</h4>
+                        <a href="https://wa.me/5493814644322?text=Hola,%20quisiera%20reservar%20un%20turno%20para%20Lifting%20de%20Pestañas" target="_blank" class="btn-servicio-whatsapp">
+                            RESERVAR TURNO
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Servicio 4 -->
+                <div class="tarjeta-servicio">
+                    <div class="wrapper-imagen-servicio">
+                        <img src="assets/estetica/facial.jpg" alt="Limpieza Facial" class="imagen-servicio" onerror="this.style.opacity='0';">
+                    </div>
+                    <div class="contenido-servicio">
+                        <h4>Limpieza Facial</h4>
+                        <a href="https://wa.me/5493814644322?text=Hola,%20quisiera%20reservar%20un%20turno%20para%20Limpieza%20Facial" target="_blank" class="btn-servicio-whatsapp">
+                            RESERVAR TURNO
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Servicio 5 -->
+                <div class="tarjeta-servicio">
+                    <div class="wrapper-imagen-servicio">
+                        <img src="assets/estetica/ceragem.jpg" alt="Cama Ceragem" class="imagen-servicio" onerror="this.style.opacity='0';">
+                    </div>
+                    <div class="contenido-servicio">
+                        <h4>Cama Ceragem</h4>
+                        <a href="https://wa.me/5493814644322?text=Hola,%20quisiera%20reservar%20un%20turno%20para%20Cama%20Ceragem" target="_blank" class="btn-servicio-whatsapp">
+                            RESERVAR TURNO
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Servicio 6 -->
+                <div class="tarjeta-servicio">
+                    <div class="wrapper-imagen-servicio">
+                        <img src="assets/estetica/laser.jpg" alt="Depilación Láser" class="imagen-servicio" onerror="this.style.opacity='0';">
+                    </div>
+                    <div class="contenido-servicio">
+                        <h4>Depilación Láser</h4>
+                        <a href="https://wa.me/5493814644322?text=Hola,%20quisiera%20reservar%20un%20turno%20para%20Depilación%20Láser" target="_blank" class="btn-servicio-whatsapp">
+                            RESERVAR TURNO
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Servicio 7 -->
+                <div class="tarjeta-servicio">
+                    <div class="wrapper-imagen-servicio">
+                        <img src="assets/estetica/cera.jpg" alt="Depilación con Cera" class="imagen-servicio" onerror="this.style.opacity='0';">
+                    </div>
+                    <div class="contenido-servicio">
+                        <h4>Depilación con Cera</h4>
+                        <a href="https://wa.me/5493814644322?text=Hola,%20quisiera%20reservar%20un%20turno%20para%20Depilación%20con%20cera" target="_blank" class="btn-servicio-whatsapp">
+                            RESERVAR TURNO
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Servicio 8 -->
+                <div class="tarjeta-servicio">
+                    <div class="wrapper-imagen-servicio">
+                        <img src="assets/estetica/masajes.jpg" alt="Masajes Modeladores" class="imagen-servicio" onerror="this.style.opacity='0';">
+                    </div>
+                    <div class="contenido-servicio">
+                        <h4>Masajes Modeladores</h4>
+                        <a href="https://wa.me/5493814644322?text=Hola,%20quisiera%20reservar%20un%20turno%20para%20Masajes%20Modeladores" target="_blank" class="btn-servicio-whatsapp">
+                            RESERVAR TURNO
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Servicio 9 -->
+                <div class="tarjeta-servicio">
+                    <div class="wrapper-imagen-servicio">
+                        <img src="assets/estetica/anticelulitis.jpg" alt="Tratamientos Anticelulitis" class="imagen-servicio" onerror="this.style.opacity='0';">
+                    </div>
+                    <div class="contenido-servicio">
+                        <h4>Tratamientos Anticelulitis</h4>
+                        <a href="https://wa.me/5493814644322?text=Hola,%20quisiera%20reservar%20un%20turno%20para%20Tratamientos%20Anticelulitis" target="_blank" class="btn-servicio-whatsapp">
+                            RESERVAR TURNO
+                        </a>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
