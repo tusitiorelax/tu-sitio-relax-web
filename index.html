@@ -3,60 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tu Sitio Relax - Reservas</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Tu Sitio Relax | Centro de Estética & Bienestar</title>
+    
+    <!-- Fuentes elegantes y modernas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Iconos profesionales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* --- DISEÑO DE IDENTIDAD PREMIUM: TU SITIO RELAX --- */
+        :root {
+            --verde-zen: #4a6b5d;      /* Color de acento principal, transmite calma */
+            --verde-suave: #f1f5f3;     /* Fondos limpios y descansados */
+            --blanco-puro: #ffffff;
+            --texto-oscuro: #2c3e35;    /* Texto legible pero suave, nada de negro puro */
+            --texto-mutado: #607d70;
+            --fuente-titulos: 'Playfair Display', serif;
+            --fuente-cuerpo: 'Poppins', sans-serif;
+            --color-whatsapp: #25d366;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--fuente-cuerpo);
+            background-color: var(--blanco-puro);
+            color: var(--texto-oscuro);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- BARRA DE NAVEGACIÓN (Elegante y fija) --- */
+        .header-navegacion {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(74, 107, 93, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-contenedor {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-marca {
+            font-family: var(--fuente-titulos);
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--verde-zen);
+            letter-spacing: 0.5px;
+        }
+
+        .btn-turno-nav {
+            background-color: var(--verde-zen);
+            color: var(--blanco-puro);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-turno-nav:hover {
+            background-color: #385247;
+            transform: translateY(-1px);
+        }
+
+        /* --- SECCIÓN HERO (Banner de bienvenida de alto impacto) --- */
+        .hero-bienvenida {
+            min-height: 100vh;
+            padding: 120px 20px 60px 20px;
+            background: linear-gradient(135deg, rgba(241, 245, 243, 0.8) 0%, rgba(255, 255, 255, 0.9) 100%), 
+                        url('assets/estetica/portada_real.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-contenido {
+            max-width: 750px;
+        }
+
+        .hero-contenido .subtitulo {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--verde-zen);
+            margin-bottom: 15px;
+        }
+
+        .hero-contenido h2 {
+            font-family: var(--fuente-titulos);
+            font-size: 3rem;
+            font-weight: 400;
+            line-height: 1.2;
+            color: var(--texto-oscuro);
+            margin-bottom: 20px;
+        }
+
+        .hero-contenido h2 em {
+            font-family: var(--fuente-titulos);
+            font-style: italic;
+            color: var(--verde-zen);
+        }
+
+        .hero-contenido p {
+            font-size: 1.05rem;
+            color: var(--texto-mutado);
+            margin-bottom: 35px;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .btn-principal-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background-color: var(--color-whatsapp);
+            color: var(--blanco-puro);
+            padding: 15px 35px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        .btn-principal-whatsapp:hover {
+            background-color: #20ba5a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+        }
+
+        /* Adaptación para pantallas chicas (Celulares) */
+        @media (max-width: 768px) {
+            .hero-contenido h2 { font-size: 2.2rem; }
+            .hero-contenido p { font-size: 0.95rem; }
+            .btn-principal-whatsapp { padding: 12px 28px; font-size: 0.95rem; }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Tu Sitio Relax</h1>
-        <p>Tu espacio de bienestar en Tafí Viejo</p>
+
+    <!-- MENÚ SUPERIOR -->
+    <header class="header-navegacion">
+        <nav class="nav-contenedor">
+            <div class="logo-marca">Tu Sitio Relax</div>
+            <a href="https://wa.me/5493814644322?text=Hola,%20quisiera%20consultar%20por%20un%20turno" class="btn-turno-nav">RESERVAR</a>
+        </nav>
     </header>
 
-    <main>
-        <section class="servicio">
-            <h2>Electroestimulación</h2>
-            <a href="https://wa.me/5493814644322?text=Hola,%20quisiera%20reservar%20un%20turno%20para%20Electroestimulación" class="boton-whatsapp">Reservar por WhatsApp</a>
-        </section>
+    <!-- BANNER DE BIENVENIDA -->
+    <section class="hero-bienvenida">
+        <div class="hero-contenido">
+            <div class="subtitulo">Estética & Bienestar</div>
+            <h2>Tu espacio de calma y renovación en <em>Tafí Viejo</em></h2>
+            <p>Descubrí tratamientos personalizados diseñados para resaltar tu belleza natural y regalarte el descanso que te mereces. Atención profesional en un ambiente pensado para tu tranquilidad.</p>
+            
+            <a href="https://wa.me/5493814644322?text=Hola,%20buenas!%20Quiero%20conocer%20los%20turnos%20disponibles%20para%20los%20tratamientos" target="_blank" class="btn-principal-whatsapp">
+                <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> AGENDÁ TU TURNO DIRECTO
+            </a>
+        </div>
+    </section>
 
-        <section class="servicio">
-            <h2>Esmaltado Semipermanente</h2>
-            <a href="https://wa.me/5493814644322?text=Hola,%20quisiera%20reservar%20un%20turno%20para%20Esmaltado%20Semipermanente" class="boton-whatsapp">Reservar por WhatsApp</a>
-        </section>
-
-        <section class="servicio">
-            <h2>Lifting de Pestañas</h2>
-            <a href="https://wa.me/5493814644322?text=Hola,%20quisiera%20reservar%20un%20turno%20para%20Lifting%20de%20Pestañas" class="boton-whatsapp">Reservar por WhatsApp</a>
-        </section>
-
-        <section class="servicio">
-            <h2>Limpieza Facial</h2>
-            <a href="https://wa.me/5493814644322?text=Hola,%20quisiera%20reservar%20un%20turno%20para%20Limpieza%20Facial" class="boton-whatsapp">Reservar por WhatsApp</a>
-        </section>
-
-        <section class="servicio">
-            <h2>Cama Ceragem</h2>
-            <a href="https://wa.me/5493814644322?text=Hola,%20quisiera%20reservar%20un%20turno%20para%20Cama%20Ceragem" class="boton-whatsapp">Reservar por WhatsApp</a>
-        </section>
-
-        <section class="servicio">
-            <h2>Depilación Láser</h2>
-            <a href="https://wa.me/5493814644322?text=Hola,%20quisiera%20reservar%20un%20turno%20para%20Depilación%20Láser" class="boton-whatsapp">Reservar por WhatsApp</a>
-        </section>
-
-        <section class="servicio">
-            <h2>Depilación con Cera</h2>
-            <a href="https://wa.me/5493814644322?text=Hola,%20quisiera%20reservar%20un%20turno%20para%20Depilación%20con%20cera" class="boton-whatsapp">Reservar por WhatsApp</a>
-        </section>
-
-        <section class="servicio">
-            <h2>Masajes Modeladores</h2>
-            <a href="https://wa.me/5493814644322?text=Hola,%20quisiera%20reservar%20un%20turno%20para%20Masajes%20Modeladores" class="boton-whatsapp">Reservar por WhatsApp</a>
-        </section>
-
-        <section class="servicio">
-            <h2>Tratamientos Anticelulitis</h2>
-            <a href="https://wa.me/5493814644322?text=Hola,%20quisiera%20reservar%20un%20turno%20para%20Tratamientos%20Anticelulitis" class="boton-whatsapp">Reservar por WhatsApp</a>
-        </section>
-    </main>
 </body>
 </html>
