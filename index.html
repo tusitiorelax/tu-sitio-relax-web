@@ -41,7 +41,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- BARRA DE NAVEGACIÓN --- */
+        /* --- BARRA DE NAVEGACIÓN (Ajustada para Logo más Grande) --- */
         .header-navegacion {
             position: fixed;
             top: 0;
@@ -56,15 +56,18 @@
         .nav-contenedor {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 10px 20px;
+            padding: 8px 20px; /* Reducimos el padding vertical para balancear el tamaño */
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
+        /* --- CORRECCIÓN DE TAMAÑO DEL LOGO --- */
         .logo-marca-img {
-            height: 45px;
+            height: 70px; /* Lo subimos de 45px a 70px para que se note e impacte */
+            width: auto;
             object-fit: contain;
+            display: block;
         }
 
         .nav-links-relax {
@@ -104,7 +107,7 @@
         /* --- SECCIÓN HERO (BIENVENIDA) --- */
         .hero-bienvenida {
             min-height: 100vh;
-            padding: 140px 20px 80px 20px;
+            padding: 160px 20px 80px 20px; /* Más espacio arriba por la barra más alta */
             background: linear-gradient(135deg, rgba(248, 250, 249, 0.85) 0%, rgba(255, 255, 255, 0.95) 100%), 
                         url('assets/estetica/logotusitio.jpg') no-repeat center center/cover;
             display: flex;
@@ -321,7 +324,6 @@
             flex-shrink: 0;
         }
 
-        /* Oculta los bloques vacíos si todavía no subiste la foto al servidor */
         .item-galeria-carrusel:has(img[style*="opacity: 0"]) {
             display: none !important;
         }
@@ -342,7 +344,7 @@
 
         @keyframes scrollInfinito {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); } /* Se adapta matemáticamente al número de fotos activas */
+            100% { transform: translateX(-50%); }
         }
 
         /* --- SECCIÓN CONVENIOS --- */
@@ -481,6 +483,8 @@
         }
 
         @media (max-width: 768px) {
+            .logo-marca-img { height: 55px; } /* Ajuste sutil para que en celus no robe tanta pantalla */
+            .hero-bienvenida { padding: 130px 20px 60px 20px; }
             .hero-contenido h2 { font-size: 2.2rem; }
             .hero-contenido p { font-size: 0.95rem; }
             .btn-principal-whatsapp { padding: 12px 28px; font-size: 0.95rem; }
@@ -495,6 +499,7 @@
     <!-- MENÚ SUPERIOR -->
     <header class="header-navegacion">
         <nav class="nav-contenedor">
+            <!-- Tu logo largo morado con el nuevo ajuste de tamaño premium -->
             <img src="assets/estetica/logolargo.jpg" alt="Tu Sitio Relax" class="logo-marca-img" onerror="this.style.display='none';">
             <div class="nav-links-relax">
                 <a href="#inicio">Inicio</a>
@@ -686,7 +691,7 @@
                 <div class="item-galeria-carrusel"><img src="assets/estetica/spa9.jpg" alt="Spa Real 9" onerror="this.style.opacity='0';"></div>
                 <div class="item-galeria-carrusel"><img src="assets/estetica/spa10.jpg" alt="Spa Real 10" onerror="this.style.opacity='0';"></div>
                 
-                <!-- Bucle de repetición Espejo (Soporte hasta 10) -->
+                <!-- Bucle de repetición Espejo -->
                 <div class="item-galeria-carrusel"><img src="assets/estetica/spa1.jpg" alt="Spa Real 1" onerror="this.style.opacity='0';"></div>
                 <div class="item-galeria-carrusel"><img src="assets/estetica/spa2.jpg" alt="Spa Real 2" onerror="this.style.opacity='0';"></div>
                 <div class="item-galeria-carrusel"><img src="assets/estetica/spa3.jpg" alt="Spa Real 3" onerror="this.style.opacity='0';"></div>
