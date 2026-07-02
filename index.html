@@ -282,47 +282,67 @@
             box-shadow: 0 4px 12px rgba(74, 107, 93, 0.15);
         }
 
-        /* --- SECCIÓN GALERÍA / NUESTRO ESPACIO --- */
+        /* --- SECCIÓN GALERÍA DINÁMICA EXPANDIBLE --- */
         .seccion-galeria {
             background-color: var(--blanco-puro);
-            padding: 100px 20px;
+            padding: 100px 0;
             border-top: 1px solid rgba(74, 107, 93, 0.05);
-        }
-
-        .grilla-galeria {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .item-galeria {
-            width: 100%;
-            aspect-ratio: 1; /* Fotos cuadradas perfectas estilo Instagram */
-            background-color: #edf2f0;
-            border-radius: 12px;
             overflow: hidden;
-            position: relative;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-            border: 1px solid rgba(74, 107, 93, 0.03);
-            transition: all 0.4s ease;
         }
 
-        .item-galeria img {
+        .carrusel-contenedor {
+            width: 100%;
+            overflow: hidden;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        .carrusel-track {
+            display: flex;
+            width: max-content;
+            gap: 25px;
+            animation: scrollInfinito 45s linear infinite;
+        }
+
+        .carrusel-contenedor:hover .carrusel-track {
+            animation-play-state: paused;
+        }
+
+        .item-galeria-carrusel {
+            width: 300px;
+            aspect-ratio: 1;
+            background-color: #edf2f0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            border: 1px solid rgba(74, 107, 93, 0.05);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        /* Oculta los bloques vacíos si todavía no subiste la foto al servidor */
+        .item-galeria-carrusel:has(img[style*="opacity: 0"]) {
+            display: none !important;
+        }
+
+        .item-galeria-carrusel img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
+            transition: transform 0.4s ease;
         }
 
-        .item-galeria:hover {
-            transform: scale(1.02);
-            box-shadow: 0 10px 25px rgba(74, 107, 93, 0.1);
+        .item-galeria-carrusel:hover {
+            transform: scale(1.08);
+            box-shadow: 0 15px 30px rgba(74, 107, 93, 0.15);
+            border-color: var(--verde-zen);
+            z-index: 10;
         }
 
-        .item-galeria:hover img {
-            transform: scale(1.06);
+        @keyframes scrollInfinito {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } /* Se adapta matemáticamente al número de fotos activas */
         }
 
         /* --- SECCIÓN CONVENIOS --- */
@@ -464,8 +484,9 @@
             .hero-contenido h2 { font-size: 2.2rem; }
             .hero-contenido p { font-size: 0.95rem; }
             .btn-principal-whatsapp { padding: 12px 28px; font-size: 0.95rem; }
-            .seccion-servicios, .seccion-contacto, .seccion-galeria { padding: 60px 20px; }
+            .seccion-servicios, .seccion-contacto { padding: 60px 20px; }
             .titulo-seccion h3, .contacto-detalles h3 { font-size: 2rem; }
+            .seccion-galeria { padding: 60px 0; }
         }
     </style>
 </head>
@@ -644,21 +665,38 @@
         </div>
     </section>
 
-    <!-- SECCIÓN NUESTRO ESPACIO / EXPERIENCIAS (NUEVO BLOQUE) -->
+    <!-- SECCIÓN NUESTRO ESPACIO CON CARRUSEL AUTOMÁTICO CONTINUO -->
     <section id="galeria" class="seccion-galeria">
-        <div class="contenedor-servicios">
-            <div class="titulo-seccion">
-                <p>Ambiente & Atención</p>
-                <h3>Nuestro Espacio</h3>
-            </div>
-            
-            <div class="grilla-galeria">
-                <div class="item-galeria"><img src="assets/estetica/spa1.jpg" alt="Instalaciones Tu Sitio Relax" onerror="this.style.opacity='0';"></div>
-                <div class="item-galeria"><img src="assets/estetica/spa2.jpg" alt="Sesión de Tratamiento Estético" onerror="this.style.opacity='0';"></div>
-                <div class="item-galeria"><img src="assets/estetica/spa3.jpg" alt="Gabinete Profesional" onerror="this.style.opacity='0';"></div>
-                <div class="item-galeria"><img src="assets/estetica/spa4.jpg" alt="Atención Personalizada" onerror="this.style.opacity='0';"></div>
-                <div class="item-galeria"><img src="assets/estetica/spa5.jpg" alt="Bienestar en Tafí Viejo" onerror="this.style.opacity='0';"></div>
-                <div class="item-galeria"><img src="assets/estetica/spa6.jpg" alt="Tratamientos Corporales" onerror="this.style.opacity='0';"></div>
+        <div class="titulo-seccion" style="margin-bottom: 40px;">
+            <p>Ambiente & Experiencias</p>
+            <h3>Nuestro Espacio</h3>
+        </div>
+        
+        <div class="carrusel-contenedor">
+            <div class="carrusel-track">
+                <!-- Grupo Original (10 Casilleros Disponibles de forma correlativa) -->
+                <div class="item-galeria-carrusel"><img src="assets/estetica/spa1.jpg" alt="Spa Real 1" onerror="this.style.opacity='0';"></div>
+                <div class="item-galeria-carrusel"><img src="assets/estetica/spa2.jpg" alt="Spa Real 2" onerror="this.style.opacity='0';"></div>
+                <div class="item-galeria-carrusel"><img src="assets/estetica/spa3.jpg" alt="Spa Real 3" onerror="this.style.opacity='0';"></div>
+                <div class="item-galeria-carrusel"><img src="assets/estetica/spa4.jpg" alt="Spa Real 4" onerror="this.style.opacity='0';"></div>
+                <div class="item-galeria-carrusel"><img src="assets/estetica/spa5.jpg" alt="Spa Real 5" onerror="this.style.opacity='0';"></div>
+                <div class="item-galeria-carrusel"><img src="assets/estetica/spa6.jpg" alt="Spa Real 6" onerror="this.style.opacity='0';"></div>
+                <div class="item-galeria-carrusel"><img src="assets/estetica/spa7.jpg" alt="Spa Real 7" onerror="this.style.opacity='0';"></div>
+                <div class="item-galeria-carrusel"><img src="assets/estetica/spa8.jpg" alt="Spa Real 8" onerror="this.style.opacity='0';"></div>
+                <div class="item-galeria-carrusel"><img src="assets/estetica/spa9.jpg" alt="Spa Real 9" onerror="this.style.opacity='0';"></div>
+                <div class="item-galeria-carrusel"><img src="assets/estetica/spa10.jpg" alt="Spa Real 10" onerror="this.style.opacity='0';"></div>
+                
+                <!-- Bucle de repetición Espejo (Soporte hasta 10) -->
+                <div class="item-galeria-carrusel"><img src="assets/estetica/spa1.jpg" alt="Spa Real 1" onerror="this.style.opacity='0';"></div>
+                <div class="item-galeria-carrusel"><img src="assets/estetica/spa2.jpg" alt="Spa Real 2" onerror="this.style.opacity='0';"></div>
+                <div class="item-galeria-carrusel"><img src="assets/estetica/spa3.jpg" alt="Spa Real 3" onerror="this.style.opacity='0';"></div>
+                <div class="item-galeria-carrusel"><img src="assets/estetica/spa4.jpg" alt="Spa Real 4" onerror="this.style.opacity='0';"></div>
+                <div class="item-galeria-carrusel"><img src="assets/estetica/spa5.jpg" alt="Spa Real 5" onerror="this.style.opacity='0';"></div>
+                <div class="item-galeria-carrusel"><img src="assets/estetica/spa6.jpg" alt="Spa Real 6" onerror="this.style.opacity='0';"></div>
+                <div class="item-galeria-carrusel"><img src="assets/estetica/spa7.jpg" alt="Spa Real 7" onerror="this.style.opacity='0';"></div>
+                <div class="item-galeria-carrusel"><img src="assets/estetica/spa8.jpg" alt="Spa Real 8" onerror="this.style.opacity='0';"></div>
+                <div class="item-galeria-carrusel"><img src="assets/estetica/spa9.jpg" alt="Spa Real 9" onerror="this.style.opacity='0';"></div>
+                <div class="item-galeria-carrusel"><img src="assets/estetica/spa10.jpg" alt="Spa Real 10" onerror="this.style.opacity='0';"></div>
             </div>
         </div>
     </section>
