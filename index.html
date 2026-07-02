@@ -282,9 +282,52 @@
             box-shadow: 0 4px 12px rgba(74, 107, 93, 0.15);
         }
 
+        /* --- SECCIÓN GALERÍA / NUESTRO ESPACIO --- */
+        .seccion-galeria {
+            background-color: var(--blanco-puro);
+            padding: 100px 20px;
+            border-top: 1px solid rgba(74, 107, 93, 0.05);
+        }
+
+        .grilla-galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .item-galeria {
+            width: 100%;
+            aspect-ratio: 1; /* Fotos cuadradas perfectas estilo Instagram */
+            background-color: #edf2f0;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            border: 1px solid rgba(74, 107, 93, 0.03);
+            transition: all 0.4s ease;
+        }
+
+        .item-galeria img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .item-galeria:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(74, 107, 93, 0.1);
+        }
+
+        .item-galeria:hover img {
+            transform: scale(1.06);
+        }
+
         /* --- SECCIÓN CONVENIOS --- */
         .seccion-convenios {
-            background-color: var(--blanco-puro);
+            background-color: var(--verde-suave);
             padding: 90px 20px;
             border-top: 1px solid rgba(74, 107, 93, 0.05);
         }
@@ -292,12 +335,12 @@
         .bloque-convenio {
             max-width: 750px;
             margin: 0 auto;
-            background: linear-gradient(135deg, #fafdff 0%, #f6faf8 100%);
+            background-color: var(--blanco-puro);
             border: 1px dashed var(--verde-zen);
             border-radius: 12px;
             padding: 35px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+            box-shadow: 0 10px 30px rgba(74, 107, 93, 0.02);
         }
 
         .bloque-convenio i {
@@ -322,8 +365,9 @@
 
         /* --- SECCIÓN CONTACTO & UBICACIÓN --- */
         .seccion-contacto {
-            background-color: var(--verde-suave);
+            background-color: var(--blanco-puro);
             padding: 100px 20px;
+            border-top: 1px solid rgba(74, 107, 93, 0.05);
         }
 
         .contacto-grid {
@@ -420,7 +464,7 @@
             .hero-contenido h2 { font-size: 2.2rem; }
             .hero-contenido p { font-size: 0.95rem; }
             .btn-principal-whatsapp { padding: 12px 28px; font-size: 0.95rem; }
-            .seccion-servicios, .seccion-contacto { padding: 60px 20px; }
+            .seccion-servicios, .seccion-contacto, .seccion-galeria { padding: 60px 20px; }
             .titulo-seccion h3, .contacto-detalles h3 { font-size: 2rem; }
         }
     </style>
@@ -430,11 +474,11 @@
     <!-- MENÚ SUPERIOR -->
     <header class="header-navegacion">
         <nav class="nav-contenedor">
-            <!-- Cargamos tu logolargo en la cabecera -->
             <img src="assets/estetica/logolargo.jpg" alt="Tu Sitio Relax" class="logo-marca-img" onerror="this.style.display='none';">
             <div class="nav-links-relax">
                 <a href="#inicio">Inicio</a>
                 <a href="#tratamientos">Tratamientos</a>
+                <a href="#galeria">El Espacio</a>
                 <a href="#convenios">Convenios</a>
                 <a href="#contacto">Ubicación</a>
             </div>
@@ -583,7 +627,7 @@
                     </div>
                 </div>
 
-                <!-- Servicio 10: Copérnico (NUEVO ADAPTADO) -->
+                <!-- Servicio 10: Copérnico -->
                 <div class="tarjeta-servicio">
                     <div class="wrapper-imagen-servicio">
                         <img src="assets/estetica/copernico.jpg" alt="Tratamiento Copérnico" class="imagen-servicio" onerror="this.parentNode.style.background='#edf2f0';">
@@ -596,6 +640,25 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN NUESTRO ESPACIO / EXPERIENCIAS (NUEVO BLOQUE) -->
+    <section id="galeria" class="seccion-galeria">
+        <div class="contenedor-servicios">
+            <div class="titulo-seccion">
+                <p>Ambiente & Atención</p>
+                <h3>Nuestro Espacio</h3>
+            </div>
+            
+            <div class="grilla-galeria">
+                <div class="item-galeria"><img src="assets/estetica/spa1.jpg" alt="Instalaciones Tu Sitio Relax" onerror="this.style.opacity='0';"></div>
+                <div class="item-galeria"><img src="assets/estetica/spa2.jpg" alt="Sesión de Tratamiento Estético" onerror="this.style.opacity='0';"></div>
+                <div class="item-galeria"><img src="assets/estetica/spa3.jpg" alt="Gabinete Profesional" onerror="this.style.opacity='0';"></div>
+                <div class="item-galeria"><img src="assets/estetica/spa4.jpg" alt="Atención Personalizada" onerror="this.style.opacity='0';"></div>
+                <div class="item-galeria"><img src="assets/estetica/spa5.jpg" alt="Bienestar en Tafí Viejo" onerror="this.style.opacity='0';"></div>
+                <div class="item-galeria"><img src="assets/estetica/spa6.jpg" alt="Tratamientos Corporales" onerror="this.style.opacity='0';"></div>
             </div>
         </div>
     </section>
