@@ -56,20 +56,19 @@
         .nav-contenedor {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 18px 20px; /* Padding cómodo y balanceado */
+            padding: 18px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        /* --- NUEVO LOGO CON LETRA BONITA Y ESTILIZADA --- */
         .logo-marca-texto {
             font-family: var(--fuente-titulos);
             font-size: 1.5rem;
             font-weight: 600;
             color: var(--verde-zen);
             text-transform: uppercase;
-            letter-spacing: 2px; /* Separación fina entre letras para darle lujo */
+            letter-spacing: 2px;
             text-decoration: none;
             transition: opacity 0.3s ease;
         }
@@ -355,7 +354,7 @@
             100% { transform: translateX(-50%); }
         }
 
-        /* --- SECCIÓN CONVENIOS --- */
+        /* --- SECCIÓN CONVENIOS (REDISEÑADA SEGÚN TU NUEVA IDEA) --- */
         .seccion-convenios {
             background-color: var(--verde-suave);
             padding: 90px 20px;
@@ -363,34 +362,41 @@
         }
 
         .bloque-convenio {
-            max-width: 750px;
+            max-width: 800px;
             margin: 0 auto;
             background-color: var(--blanco-puro);
             border: 1px dashed var(--verde-zen);
-            border-radius: 12px;
-            padding: 35px;
+            border-radius: 16px;
+            padding: 45px 35px;
             text-align: center;
             box-shadow: 0 10px 30px rgba(74, 107, 93, 0.02);
         }
 
         .bloque-convenio i {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             color: var(--verde-zen);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .bloque-convenio h4 {
             font-family: var(--fuente-titulos);
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 400;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             color: var(--texto-oscuro);
+            letter-spacing: 0.5px;
         }
 
         .bloque-convenio p {
-            color: var(--texto-mutado);
-            font-size: 0.95rem;
-            line-height: 1.6;
+            color: var(--texto-oscuro);
+            font-size: 1rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .bloque-convenio p strong {
+            color: var(--verde-zen);
+            font-weight: 600;
         }
 
         /* --- SECCIÓN CONTACTO & UBICACIÓN --- */
@@ -440,7 +446,7 @@
         .info-item span {
             display: block;
             font-size: 0.85rem;
-            color: var(--texto-mutado);
+            color: var(--texto-mutated);
             margin-top: 2px;
         }
 
@@ -491,13 +497,15 @@
         }
 
         @media (max-width: 768px) {
-            .logo-marca-texto { font-size: 1.2rem; letter-spacing: 1px; } /* Se achica un toque en celus */
+            .logo-marca-texto { font-size: 1.2rem; letter-spacing: 1px; }
             .hero-contenido h2 { font-size: 2.2rem; }
             .hero-contenido p { font-size: 0.95rem; }
             .btn-principal-whatsapp { padding: 12px 28px; font-size: 0.95rem; }
             .seccion-servicios, .seccion-contacto { padding: 60px 20px; }
             .titulo-seccion h3, .contacto-detalles h3 { font-size: 2rem; }
             .seccion-galeria { padding: 60px 0; }
+            .bloque-convenio h4 { font-size: 1.5rem; }
+            .bloque-convenio { padding: 30px 20px; }
         }
     </style>
 </head>
@@ -506,9 +514,7 @@
     <!-- MENÚ SUPERIOR -->
     <header class="header-navegacion">
         <nav class="nav-contenedor">
-            <!-- Nuevo Logo Tipográfico Puro Elegante -->
             <a href="#inicio" class="logo-marca-texto">Tu Sitio Relax</a>
-            
             <div class="nav-links-relax">
                 <a href="#inicio">Inicio</a>
                 <a href="#tratamientos">Tratamientos</a>
@@ -687,7 +693,7 @@
         
         <div class="carrusel-contenedor">
             <div class="carrusel-track">
-                <!-- Grupo Original (10 Casilleros Disponibles de forma correlativa) -->
+                <!-- Grupo Original (10 Casilleros Disponibles) -->
                 <div class="item-galeria-carrusel"><img src="assets/estetica/spa1.jpg" alt="Spa Real 1" onerror="this.style.opacity='0';"></div>
                 <div class="item-galeria-carrusel"><img src="assets/estetica/spa2.jpg" alt="Spa Real 2" onerror="this.style.opacity='0';"></div>
                 <div class="item-galeria-carrusel"><img src="assets/estetica/spa3.jpg" alt="Spa Real 3" onerror="this.style.opacity='0';"></div>
@@ -714,12 +720,12 @@
         </div>
     </section>
 
-    <!-- SECCIÓN CONVENIOS -->
+    <!-- SECCIÓN CONVENIOS (NUEVA ACTUALIZACIÓN DE TEXTO) -->
     <section id="convenios" class="seccion-convenios">
         <div class="bloque-convenio">
-            <i class="fas fa-handshake"></i>
-            <h4>Beneficios Exclusivos para Afiliados</h4>
-            <p>Contamos con un convenio formal junto a la **Asociación de Educadores**, ofreciendo importantes descuentos y beneficios preferenciales en todo nuestro catálogo de tratamientos de bienestar y estética para sus miembros.</p>
+            <i class="fas fa-percentage"></i>
+            <h4>Beneficios Exclusivos & Convenios</h4>
+            <p>En <strong>Tu Sitio Relax</strong> acompañamos el bienestar de nuestra comunidad. Por eso, ofrecemos importantes descuentos y beneficios preferenciales en todo nuestro catálogo de tratamientos de estética a <strong>todos los trabajadores y trabajadoras de la administración pública y privada, como así también a nuestros estimados jubilados</strong>. Tu momento de descanso y renovación, ahora más accesible.</p>
         </div>
     </section>
 
@@ -765,7 +771,7 @@
 
     <!-- FOOTER -->
     <footer>
-        <p>© 2026 <em>Tu Sitio Relax</em> • Estética y Bienestar en Tafí Viejo. Potenciado por Box360tuc.</p>
+        <p>© 2026 <em>Tu Sitio Relax</em> • Estética y Bienestar en Tafí Viejo.</p>
     </footer>
 
 </body>
