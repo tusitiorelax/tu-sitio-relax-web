@@ -56,18 +56,15 @@
         .nav-contenedor {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 15px 20px;
+            padding: 10px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo-marca {
-            font-family: var(--fuente-titulos);
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--verde-zen);
-            letter-spacing: 0.5px;
+        .logo-marca-img {
+            height: 45px;
+            object-fit: contain;
         }
 
         .nav-links-relax {
@@ -109,7 +106,7 @@
             min-height: 100vh;
             padding: 140px 20px 80px 20px;
             background: linear-gradient(135deg, rgba(248, 250, 249, 0.85) 0%, rgba(255, 255, 255, 0.95) 100%), 
-                        url('assets/estetica/portada_real.jpg') no-repeat center center/cover;
+                        url('assets/estetica/logotusitio.jpg') no-repeat center center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -433,14 +430,15 @@
     <!-- MENÚ SUPERIOR -->
     <header class="header-navegacion">
         <nav class="nav-contenedor">
-            <div class="logo-marca">Tu Sitio Relax</div>
+            <!-- Cargamos tu logolargo en la cabecera -->
+            <img src="assets/estetica/logolargo.jpg" alt="Tu Sitio Relax" class="logo-marca-img" onerror="this.style.display='none';">
             <div class="nav-links-relax">
                 <a href="#inicio">Inicio</a>
                 <a href="#tratamientos">Tratamientos</a>
                 <a href="#convenios">Convenios</a>
                 <a href="#contacto">Ubicación</a>
             </div>
-            <a href="#tratamientos" class="btn-turno-nav">RESERVAR</a>
+            <a href="#tratamientos" class="btn-turno-nav">SERVICIOS</a>
         </nav>
     </header>
 
@@ -471,7 +469,7 @@
                 <!-- Servicio 1 -->
                 <div class="tarjeta-servicio">
                     <div class="wrapper-imagen-servicio">
-                        <img src="assets/estetica/electro.jpg" alt="Electroestimulación" class="imagen-servicio" onerror="this.style.opacity='0';">
+                        <img src="assets/estetica/bodyup.jpg" alt="Electroestimulación" class="imagen-servicio" onerror="this.parentNode.style.background='#edf2f0';">
                     </div>
                     <div class="contenido-servicio">
                         <h4>Electroestimulación</h4>
@@ -484,7 +482,7 @@
                 <!-- Servicio 2 -->
                 <div class="tarjeta-servicio">
                     <div class="wrapper-imagen-servicio">
-                        <img src="assets/estetica/semipermanente.jpg" alt="Esmaltado Semipermanente" class="imagen-servicio" onerror="this.style.opacity='0';">
+                        <img src="assets/estetica/semipermanetes.jpg" alt="Esmaltado Semipermanente" class="imagen-servicio" onerror="this.parentNode.style.background='#edf2f0';">
                     </div>
                     <div class="contenido-servicio">
                         <h4>Esmaltado Semipermanente</h4>
@@ -497,7 +495,7 @@
                 <!-- Servicio 3 -->
                 <div class="tarjeta-servicio">
                     <div class="wrapper-imagen-servicio">
-                        <img src="assets/estetica/lifting.jpg" alt="Lifting de Pestañas" class="imagen-servicio" onerror="this.style.opacity='0';">
+                        <img src="assets/estetica/lifting.jpg" alt="Lifting de Pestañas" class="imagen-servicio" onerror="this.parentNode.style.background='#edf2f0';">
                     </div>
                     <div class="contenido-servicio">
                         <h4>Lifting de Pestañas</h4>
@@ -510,7 +508,7 @@
                 <!-- Servicio 4 -->
                 <div class="tarjeta-servicio">
                     <div class="wrapper-imagen-servicio">
-                        <img src="assets/estetica/facial.jpg" alt="Limpieza Facial" class="imagen-servicio" onerror="this.style.opacity='0';">
+                        <img src="assets/estetica/facial.jpg" alt="Limpieza Facial" class="imagen-servicio" onerror="this.parentNode.style.background='#edf2f0';">
                     </div>
                     <div class="contenido-servicio">
                         <h4>Limpieza Facial</h4>
@@ -523,7 +521,7 @@
                 <!-- Servicio 5 -->
                 <div class="tarjeta-servicio">
                     <div class="wrapper-imagen-servicio">
-                        <img src="assets/estetica/ceragem.jpg" alt="Cama Ceragem" class="imagen-servicio" onerror="this.style.opacity='0';">
+                        <img src="assets/estetica/ceragem.jpg" alt="Cama Ceragem" class="imagen-servicio" onerror="this.parentNode.style.background='#edf2f0';">
                     </div>
                     <div class="contenido-servicio">
                         <h4>Cama Ceragem</h4>
@@ -536,7 +534,7 @@
                 <!-- Servicio 6 -->
                 <div class="tarjeta-servicio">
                     <div class="wrapper-imagen-servicio">
-                        <img src="assets/estetica/laser.jpg" alt="Depilación Láser" class="imagen-servicio" onerror="this.style.opacity='0';">
+                        <img src="assets/estetica/depilacionlaser.jpg" alt="Depilación Láser" class="imagen-servicio" onerror="this.parentNode.style.background='#edf2f0';">
                     </div>
                     <div class="contenido-servicio">
                         <h4>Depilación Láser</h4>
@@ -549,7 +547,7 @@
                 <!-- Servicio 7 -->
                 <div class="tarjeta-servicio">
                     <div class="wrapper-imagen-servicio">
-                        <img src="assets/estetica/cera.jpg" alt="Depilación con Cera" class="imagen-servicio" onerror="this.style.opacity='0';">
+                        <img src="assets/estetica/cera.jpg" alt="Depilación con Cera" class="imagen-servicio" onerror="this.parentNode.style.background='#edf2f0';">
                     </div>
                     <div class="contenido-servicio">
                         <h4>Depilación con Cera</h4>
@@ -562,7 +560,7 @@
                 <!-- Servicio 8 -->
                 <div class="tarjeta-servicio">
                     <div class="wrapper-imagen-servicio">
-                        <img src="assets/estetica/masajes.jpg" alt="Masajes Modeladores" class="imagen-servicio" onerror="this.style.opacity='0';">
+                        <img src="assets/estetica/masajerelax.jpg" alt="Masajes Modeladores" class="imagen-servicio" onerror="this.parentNode.style.background='#edf2f0';">
                     </div>
                     <div class="contenido-servicio">
                         <h4>Masajes Modeladores</h4>
@@ -575,11 +573,24 @@
                 <!-- Servicio 9 -->
                 <div class="tarjeta-servicio">
                     <div class="wrapper-imagen-servicio">
-                        <img src="assets/estetica/anticelulitis.jpg" alt="Tratamientos Anticelulitis" class="imagen-servicio" onerror="this.style.opacity='0';">
+                        <img src="assets/estetica/celulitis.jpg" alt="Tratamientos Anticelulitis" class="imagen-servicio" onerror="this.parentNode.style.background='#edf2f0';">
                     </div>
                     <div class="contenido-servicio">
                         <h4>Tratamientos Anticelulitis</h4>
                         <a href="https://wa.me/5493814644322?text=Hola,%20quisiera%20reservar%20un%20turno%20para%20Tratamientos%20Anticelulitis" target="_blank" class="btn-servicio-whatsapp">
+                            RESERVAR TURNO
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Servicio 10: Copérnico (NUEVO ADAPTADO) -->
+                <div class="tarjeta-servicio">
+                    <div class="wrapper-imagen-servicio">
+                        <img src="assets/estetica/copernico.jpg" alt="Tratamiento Copérnico" class="imagen-servicio" onerror="this.parentNode.style.background='#edf2f0';">
+                    </div>
+                    <div class="contenido-servicio">
+                        <h4>Copérnico</h4>
+                        <a href="https://wa.me/5493814644322?text=Hola,%20quisiera%20reservar%20un%20turno%20para%20Copérnico" target="_blank" class="btn-servicio-whatsapp">
                             RESERVAR TURNO
                         </a>
                     </div>
@@ -632,7 +643,6 @@
             </div>
 
             <div class="mapa-relax">
-                <!-- Mapa interactivo oficial centrado exactamente en la intersección de Pje Guemes y Bolivar, Tafi Viejo -->
                 <iframe src="https://maps.google.com/maps?q=Pasaje%20Guemes%20y%20Bolivar,%20Tafi%20Viejo,%20Tucuman&t=&z=16&ie=UTF8&iwloc=&output=embed"></iframe>
             </div>
 
