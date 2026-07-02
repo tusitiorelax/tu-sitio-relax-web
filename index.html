@@ -41,7 +41,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- BARRA DE NAVEGACIÓN (Ajustada para Logo más Grande) --- */
+        /* --- BARRA DE NAVEGACIÓN --- */
         .header-navegacion {
             position: fixed;
             top: 0;
@@ -56,23 +56,31 @@
         .nav-contenedor {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 8px 20px; /* Reducimos el padding vertical para balancear el tamaño */
+            padding: 18px 20px; /* Padding cómodo y balanceado */
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        /* --- CORRECCIÓN DE TAMAÑO DEL LOGO --- */
-        .logo-marca-img {
-            height: 70px; /* Lo subimos de 45px a 70px para que se note e impacte */
-            width: auto;
-            object-fit: contain;
-            display: block;
+        /* --- NUEVO LOGO CON LETRA BONITA Y ESTILIZADA --- */
+        .logo-marca-texto {
+            font-family: var(--fuente-titulos);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--verde-zen);
+            text-transform: uppercase;
+            letter-spacing: 2px; /* Separación fina entre letras para darle lujo */
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo-marca-texto:hover {
+            opacity: 0.85;
         }
 
         .nav-links-relax {
             display: flex;
-            gap: 20px;
+            gap: 24px;
             align-items: center;
         }
 
@@ -107,7 +115,7 @@
         /* --- SECCIÓN HERO (BIENVENIDA) --- */
         .hero-bienvenida {
             min-height: 100vh;
-            padding: 160px 20px 80px 20px; /* Más espacio arriba por la barra más alta */
+            padding: 140px 20px 80px 20px;
             background: linear-gradient(135deg, rgba(248, 250, 249, 0.85) 0%, rgba(255, 255, 255, 0.95) 100%), 
                         url('assets/estetica/logotusitio.jpg') no-repeat center center/cover;
             display: flex;
@@ -483,8 +491,7 @@
         }
 
         @media (max-width: 768px) {
-            .logo-marca-img { height: 55px; } /* Ajuste sutil para que en celus no robe tanta pantalla */
-            .hero-bienvenida { padding: 130px 20px 60px 20px; }
+            .logo-marca-texto { font-size: 1.2rem; letter-spacing: 1px; } /* Se achica un toque en celus */
             .hero-contenido h2 { font-size: 2.2rem; }
             .hero-contenido p { font-size: 0.95rem; }
             .btn-principal-whatsapp { padding: 12px 28px; font-size: 0.95rem; }
@@ -499,8 +506,9 @@
     <!-- MENÚ SUPERIOR -->
     <header class="header-navegacion">
         <nav class="nav-contenedor">
-            <!-- Tu logo largo morado con el nuevo ajuste de tamaño premium -->
-            <img src="assets/estetica/logolargo.jpg" alt="Tu Sitio Relax" class="logo-marca-img" onerror="this.style.display='none';">
+            <!-- Nuevo Logo Tipográfico Puro Elegante -->
+            <a href="#inicio" class="logo-marca-texto">Tu Sitio Relax</a>
+            
             <div class="nav-links-relax">
                 <a href="#inicio">Inicio</a>
                 <a href="#tratamientos">Tratamientos</a>
